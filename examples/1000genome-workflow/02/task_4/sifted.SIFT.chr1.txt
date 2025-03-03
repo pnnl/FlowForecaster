@@ -1,0 +1,1 @@
+/qfs/projects/oddite/leeh736/git/1000genome-workflow/one_chr/task/2/task_3/sifted.SIFT.chr1.txt

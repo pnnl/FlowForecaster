@@ -14,13 +14,13 @@ The script is designed to run on a specific example using the 1000 Genomes workf
 
     ...
     
-PATTERN: *.fasta.amb PATHNAME: /qfs/projects/leeh736/git/1000genome-workflow/bin/<frozen importlib._bootstrap_external>
-PATTERN: *.fasta.sa PATHNAME: /qfs/projects/leeh736/git/1000genome-workflow/bin/<frozen importlib._bootstrap_external>
-PATTERN: *.fasta.bwt PATHNAME: /qfs/projects/leeh736/git/1000genome-workflow/bin/<frozen importlib._bootstrap_external>
-PATTERN: *.fasta.pac PATHNAME: /qfs/projects/leeh736/git/1000genome-workflow/bin/<frozen importlib._bootstrap_external>
-PATTERN: *.fasta.ann PATHNAME: /qfs/projects/leeh736/git/1000genome-workflow/bin/<frozen importlib._bootstrap_external>
-PATTERN: *.fasta PATHNAME: /qfs/projects/leeh736/git/1000genome-workflow/bin/<frozen importlib._bootstrap_external>
-Checkmeta calling open on file /qfs/projects/leeh736/git/1000genome-workflow/bin/<frozen importlib._bootstrap_external>
+    PATTERN: *.fasta.amb PATHNAME: /g1000genome-workflow/bin/<frozen importlib._bootstrap_external>
+    PATTERN: *.fasta.sa PATHNAME: /g1000genome-workflow/bin/<frozen importlib._bootstrap_external>
+    PATTERN: *.fasta.bwt PATHNAME: /g1000genome-workflow/bin/<frozen importlib._bootstrap_external>
+    PATTERN: *.fasta.pac PATHNAME: /g1000genome-workflow/bin/<frozen importlib._bootstrap_external>
+    PATTERN: *.fasta.ann PATHNAME: /g1000genome-workflow/bin/<frozen importlib._bootstrap_external>
+    PATTERN: *.fasta PATHNAME: /g1000genome-workflow/bin/<frozen importlib._bootstrap_external>
+    Checkmeta calling open on file /g1000genome-workflow/bin/<frozen importlib._bootstrap_external>
     ...
 
 

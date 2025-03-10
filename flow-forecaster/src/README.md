@@ -6,19 +6,19 @@ This page introduces Flow Forecaster calls in the following order:
   - flow_forecaster.sbatch
    : initializing slurm job scheduler 
 
-  - get_sh
+  - get_sh.py
    : read and parse input data
 
-  - gen_edgelist
+  - gen_edgelist.py
    : write edgelist
 
-  - parse_dfls
+  - parse_dfls.py
    : write edgelist in a graph format
 
-  - final_results
+  - final_results.py
    : collect a set of results
 
-  - predict_dfls
+  - predict_dfls.py
    : meet an high accuracy
 
 

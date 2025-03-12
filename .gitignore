@@ -1,0 +1,8 @@
+# Output
+*.err
+*.out
+*.log
+task_*/
+
+# Python cache
+__pycache__/

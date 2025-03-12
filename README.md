@@ -12,8 +12,8 @@ FlowForecaster
 
   - Related: 
   [DataLife](https://github.com/pnnl/DataLife)
+  [DaYu](https://github.com/pnnl/DaYu)
   [FlowForecaster](https://github.com/pnnl/FlowForecaster)
-  <!-- [DaYu](https://github.com/pnnl/DaYu) -->
    
 
 **About (Summary)**: To enable high quality scheduling decisions,

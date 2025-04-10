@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="weight" attr.type="int"/>
+<key id="d0" for="node" attr.name="ntype" attr.type="string"/>
+<graph edgedefault="directed"><node id="run_openmm_py (ID0000001)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0000.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000002)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0001.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000003)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0002.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000004)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0003.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000005)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0004.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000006)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0005.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000007)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0006.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000008)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0007.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000009)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0008.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000010)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0009.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000011)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0010.h5">
+  <data key="d0">file</data>
+</node>
+<node id="run_openmm_py (ID0000012)">
+  <data key="d0">task</data>
+</node>
+<node id="stage0000_task0011.h5">
+  <data key="d0">file</data>
+</node>
+<node id="aggregate_py (ID0000013)">
+  <data key="d0">task</data>
+</node>
+<node id="aggregated.h5">
+  <data key="d0">file</data>
+</node>
+<node id="train_py (ID0000014)">
+  <data key="d0">task</data>
+</node>
+<node id="embeddings-epoch-1-20230112-125118.h5">
+  <data key="d0">file</data>
+</node>
+<node id="embeddings-epoch-2-20230112-125238.h5">
+  <data key="d0">file</data>
+</node>
+<node id="embeddings-epoch-3-20230112-125357.h5">
+  <data key="d0">file</data>
+</node>
+<node id="embeddings-epoch-4-20230112-125526.h5">
+  <data key="d0">file</data>
+</node>
+<node id="embeddings-epoch-5-20230112-125655.h5">
+  <data key="d0">file</data>
+</node>
+<node id="embeddings-epoch-6-20230112-131442.h5">
+  <data key="d0">file</data>
+</node>
+<node id="embeddings-epoch-7-20230112-131601.h5">
+  <data key="d0">file</data>
+</node>
+<node id="embeddings-epoch-8-20230112-131719.h5">
+  <data key="d0">file</data>
+</node>
+<node id="embeddings-epoch-9-20230112-131848.h5">
+  <data key="d0">file</data>
+</node>
+<node id="embeddings-epoch-10-20230112-132011.h5">
+  <data key="d0">file</data>
+</node>
+<node id="lof_py (ID0000015)">
+  <data key="d0">task</data>
+</node>
+<node id="epoch-10-20230112-132011.pt">
+  <data key="d0">file</data>
+</node>
+<edge source="run_openmm_py (ID0000001)" target="stage0000_task0000.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0000.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45325976</data>
+</edge>
+<edge source="run_openmm_py (ID0000002)" target="stage0000_task0001.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0001.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45756056</data>
+</edge>
+<edge source="run_openmm_py (ID0000003)" target="stage0000_task0002.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0002.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45342360</data>
+</edge>
+<edge source="run_openmm_py (ID0000004)" target="stage0000_task0003.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0003.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">44973720</data>
+</edge>
+<edge source="run_openmm_py (ID0000005)" target="stage0000_task0004.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0004.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45293208</data>
+</edge>
+<edge source="run_openmm_py (ID0000006)" target="stage0000_task0005.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0005.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45330072</data>
+</edge>
+<edge source="run_openmm_py (ID0000007)" target="stage0000_task0006.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0006.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45338264</data>
+</edge>
+<edge source="run_openmm_py (ID0000008)" target="stage0000_task0007.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0007.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45325976</data>
+</edge>
+<edge source="run_openmm_py (ID0000009)" target="stage0000_task0008.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0008.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45117080</data>
+</edge>
+<edge source="run_openmm_py (ID0000010)" target="stage0000_task0009.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0009.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45338264</data>
+</edge>
+<edge source="run_openmm_py (ID0000011)" target="stage0000_task0010.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0010.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">45502104</data>
+</edge>
+<edge source="run_openmm_py (ID0000012)" target="stage0000_task0011.h5">
+  <data key="d1">210</data>
+</edge>
+<edge source="stage0000_task0011.h5" target="aggregate_py (ID0000013)">
+  <data key="d1">44412568</data>
+</edge>
+<edge source="aggregate_py (ID0000013)" target="aggregated.h5">
+  <data key="d1">503656827</data>
+</edge>
+<edge source="aggregated.h5" target="train_py (ID0000014)">
+  <data key="d1">1898819204</data>
+</edge>
+<edge source="aggregated.h5" target="lof_py (ID0000015)">
+  <data key="d1">378731152</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-1-20230112-125118.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-2-20230112-125238.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-3-20230112-125357.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-4-20230112-125526.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-5-20230112-125655.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-6-20230112-131442.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-7-20230112-131601.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-8-20230112-131719.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-9-20230112-131848.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="train_py (ID0000014)" target="embeddings-epoch-10-20230112-132011.h5">
+  <data key="d1">171096</data>
+</edge>
+<edge source="epoch-10-20230112-132011.pt" target="lof_py (ID0000015)">
+  <data key="d1">28943903</data>
+</edge>
+</graph></graphml>

@@ -6,3 +6,10 @@ task_*/
 
 # Python cache
 __pycache__/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/

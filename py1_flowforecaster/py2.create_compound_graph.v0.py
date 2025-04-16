@@ -10,6 +10,7 @@ from py_lib_flowforecaster import EdgeType, VertexType
 from py_lib_flowforecaster import EdgeAttrType, VertexAttrType
 from py_lib_flowforecaster import show_dag
 from py_lib_flowforecaster import check_is_data
+from py_lib_flowforecaster import flatten_graph_for_graphml
 
 
 def get_task_prefix(task):
@@ -101,27 +102,27 @@ def update_vertex_attr(G,
         G.nodes[vertex][key].append(val)
 
 
-def flatten_graph_for_graphml(G):
-    """
-    networkx.exception.NetworkXError: GraphML writer does not support <class 'list'> as data values.
-    Therefore, we need to flatten those list before saving.
-    """
-
-    # Flatten vertex attributes
-    for v, attr in G.nodes(data=True):
-        for key, val in attr.items():
-            if isinstance(val, list):
-                attr[key] = "[" + ",".join([str(x) for x in val]) + "]"
-            else:
-                attr[key] = str(val)
-
-    # Flatten edge attributes
-    for src, dst, attr in G.edges(data=True):
-        for key, val in attr.items():
-            if isinstance(val, list):
-                attr[key] = "[" + ",".join([str(x) for x in val]) + "]"
-            else:
-                attr[key] = str(val)
+# def flatten_graph_for_graphml(G):
+#     """
+#     networkx.exception.NetworkXError: GraphML writer does not support <class 'list'> as data values.
+#     Therefore, we need to flatten those list before saving.
+#     """
+#
+#     # Flatten vertex attributes
+#     for v, attr in G.nodes(data=True):
+#         for key, val in attr.items():
+#             if isinstance(val, list):
+#                 attr[key] = "[" + ",".join([str(x) for x in val]) + "]"
+#             else:
+#                 attr[key] = str(val)
+#
+#     # Flatten edge attributes
+#     for src, dst, attr in G.edges(data=True):
+#         for key, val in attr.items():
+#             if isinstance(val, list):
+#                 attr[key] = "[" + ",".join([str(x) for x in val]) + "]"
+#             else:
+#                 attr[key] = str(val)
 
 
 def compound(filename: str):
@@ -147,7 +148,6 @@ def compound(filename: str):
     num_levels = len(vertex_levels)
     first_task_level = get_first_task_level(vertex_levels, G=G)
     print(f"first_task_level: {first_task_level} num_levels: {num_levels}")
-    # Assume a task must consume a file and produce a file
     boundary_level = 0
     for level in range(first_task_level, num_levels, 2):
         # Iterate the task levels
@@ -332,6 +332,7 @@ def compound(filename: str):
                 raise Exception(f"Should never happen. len(tasks) = {len(tasks)}")
 
         """
+        Assume a task must produces a file
         Add edges from tasks to sequential files. These edges are all sequential.
         """
         for task_prefix, tasks in task_clusters.items():

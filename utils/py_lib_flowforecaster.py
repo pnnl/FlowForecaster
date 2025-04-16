@@ -46,14 +46,14 @@ def check_is_data(node: str, attr: dict):
     return False
 
 
-def show_dag(G):
+def show_dag(G, msg="test"):
     # print(f"graphml_file: {filename}")
     # G = nx.read_graphml(filename)
 
     # Topological generations
     try:
         generations = nx.topological_generations(G)
-        print(f"\nGenerations(topological_generations):")
+        # print(f"\nGenerations(topological_generations):")
         for layer, nodes in enumerate(generations):
             # print(f"layer: {layer} nodes: {nodes}")
             for node in nodes:
@@ -74,10 +74,27 @@ def show_dag(G):
     # nx.draw_networkx_edge_labels(G, pos=positions, edge_labels=edge_labels)
 
     basename = "output.figure"
-    png_filename = f"{basename}.png"
+    png_filename = f"{basename}.{msg}.png"
     ax.set_title(png_filename)
     fig.tight_layout()
     fig.savefig(png_filename)
-    print(f"\nSaved to {png_filename}")
-    print(f"\nnum_nodes: {G.number_of_nodes()} num_edges: {G.number_of_edges()}")
+    print(f"Saved to {png_filename}")
+    print(f"{msg}.num_nodes: {G.number_of_nodes()} {msg}.num_edges: {G.number_of_edges()}")
     plt.show()
+
+
+def flatten_graph_for_graphml(G):
+    """
+    networkx.exception.NetworkXError: GraphML writer does not support <class 'list'> as data values.
+    Therefore, we need to flatten those list before saving.
+    """
+
+    # Flatten vertex attributes
+    for v, attr in G.nodes(data=True):
+        for key, val in attr.items():
+            attr[key] = f"{val}"
+
+    # Flatten edge attributes
+    for src, dst, attr in G.edges(data=True):
+        for key, val in attr.items():
+            attr[key] = f"{val}"

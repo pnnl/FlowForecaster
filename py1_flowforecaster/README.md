@@ -2,7 +2,7 @@
 
 ## Install Dependent Python3 Library
 ```bash
-$ pip install numpy networkx matplotlib pandas
+$ pip install numpy networkx matplotlib pandas sortedcontainers
 ```
 
 ## Run Example of Space Folding and Time Folding
@@ -10,7 +10,7 @@ $ pip install numpy networkx matplotlib pandas
 1. Synthesize a workflow of 3 iterations and 2 threads.
 ```shell
 $ cd py1_flowforecaster
-$ python py1.synthesize_graphml_iterations.1k_genome.v0.py data/dummy.1k_genome.graphml -i 3 -t 2
+$ python py1.synthesize_graphml_iterations.1k_genome.v1.threads.py data/dummy.1k_genome.graphml -i 3 -t 2
 ```
 Here `data/dummy.1k_genome.graphml` is a simplified 1000Genome workflow. 
 `-i 3` means 3 iterations, and `-t 2` means 2 threads (independent parallel workflows).

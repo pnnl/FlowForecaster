@@ -3,6 +3,7 @@
 *.out
 *.log
 task_*/
+output*
 
 # Python cache
 __pycache__/

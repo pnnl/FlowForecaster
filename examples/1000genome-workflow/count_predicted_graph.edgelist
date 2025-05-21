@@ -1,5 +1,0 @@
-columns.txt individuals {'accuracy': [100.0]}
-columns.txt frequency {'accuracy': [100.0]}
-ALL.chr1.2500.vcf individuals {'accuracy': [100.0]}
-chr1n.tar.gz frequency {'accuracy': [100.0]}
-sifted.SIFT.chr1.txt frequency {'accuracy': [100.0]}

@@ -1,79 +1,22 @@
-<!-- -*-Mode: markdown;-*- -->
-<!-- $Id: bd5988fb659f47215d89334363ba2b7ac2fe2b8f $ -->
+# FlowForecaster
 
+## Install Dependent Python3 Library
+```bash
+$ pip install numpy networkx matplotlib pandas sortedcontainers
+```
 
-Prerequisites
-=============================================================================
+## Usage
+```
+bash
+$ $ python create_canonical_model_auto_scaling.py \
+  --data-instances <data_scaling_files> \
+  --task-instances <task_scaling_files> \
+  --output-data <data_model_output> \
+  --output-task <task_model_output>
+```
 
-Environment
-  - CMake (>= version 2.8)
-  - C++14 compiler, GCC preferred
-  - Python 3.7+
+An example:
 
-
-
-Building & Installing
-=============================================================================
-
-....
-
-1. Installing...
-   ```sh
-   mkdir <build> && cd <build>
-   cmake \
-     -DCMAKE_INSTALL_PREFIX=<install-path> \
-     <datalife-root-path>
-   make install
-   ```
-
-
-Using
-=============================================================================
-
-1. First use [DataLife](https://github.com/pnnl/DataLife) to monitor a
-   few (e.g., 3--5) Data Flow Lifecycle profiles. The inputs should
-   vary either input data sizes or parallelism. A Data Flow Lifecycle
-   is a property DAGs with detailed data flow statistics.
-
-   ```sh
-    ...
-    ...datalife
-    ```
-
-
-2. Model with FlowForecaster. This step will infer a detailed and
-   interpretable workflow scaling model from a few empirical Data Flow
-   Lifecycle property graphs.
-
-   ```sh
-    ...
-    usage: datalife-analyze [-h] [-i INPUT] [-o OUTPUT]
-
-    ....
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      -i INPUT, --input INPUT
-                            read I/O monitor stats from directory path
-      -o OUTPUT, --output OUTPUT
-                            write a graph output to a file
-    ```
-
-3. Examine the model output. 
-  
-  ...
-  
-  A FlowForecaster model is an abstract directed acyclic graph (DAG)
-  with analytical expressions to describe how the DAG scales and how
-  data flows along edges. Importantly, FlowForecaster's expression
-  language and rules can explain data dependent structure and
-  flow. FlowForecaster's inference finds repeated substructure, infers
-  analytical rules to explain substructure scaling (edge branching and
-  joining), and predicts edge properties such as data accesses, access
-  size, and data volume.
-
-
-4. Predict the Data Flow Lifecycle graph using different values for
-   the data size or task concurrency. Use the predictions for better
-   scheduling.
-
+```bash
+$ python src/create_canonical_model_auto_scaling.py --data-instances ../sample_data/1000Genomes/sample.1k_genome.iter-3.thrd-2.graphml ../sample_data/1000Genomes/sample.1k_genome.iter-3.thrd-2_data_scale_2.0.graphml  ../sample_data/1000Genomes/sample.1k_genome.iter-3.thrd-2_data_scale_3.0.graphml --task-instances ../sample_data/1000Genomes/sample.1k_genome.iter-3.thrd-2.graphml ../sample_data/1000Genomes/sample.1k_genome.iter-3.thrd-2_task_scale_2.0.graphml ../sample_data/1000Genomes/sample.1k_genome.iter-3.thrd-2_task_scale_3.0.graphml  --output-data canonical_1000genomes_data_scaling.graphml --output-task canonical_1000genomes_task_scaling.graphml
+```

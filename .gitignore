@@ -1,0 +1,16 @@
+# Output
+*.err
+*.out
+*.log
+task_*/
+output*
+
+# Python cache
+__pycache__/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/

@@ -2,6 +2,10 @@
 
 ## Install Dependent Python3 Library
 ```bash
+$ pip install -r requirements.txt
+```
+Or
+```bash
 $ pip install numpy networkx matplotlib pandas sortedcontainers
 ```
 

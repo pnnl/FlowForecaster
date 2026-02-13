@@ -6,13 +6,11 @@ FlowForecaster
 =============================================================================
 
 **Home**:
-  - https://github.com/pnnl/FlowForecaster
+  - [FlowForecaster](https://github.com/pnnl/FlowForecaster), 
+    part of [DataFlowDrs](https://github.com/pnnl/DataFlowDrs)
   
-  - [Performance Lab for EXtreme Computing and daTa](https://github.com/perflab-exact)
+  - [Performance Lab for EXtreme Computing and daTa](https://github.com/PerfLab-EXaCT)
 
-  - Related: 
-  [DataFlowDrs](https://github.com/pnnl/DataFlowDrs)
-   
 
 **About (Summary)**: To enable high quality scheduling decisions,
 FlowForecaster automatically infers detailed and interpretable
@@ -57,11 +55,7 @@ size, and data volume.
   - Nathan R. Tallent ([www](https://nathantallent.github.io))
   - Jesun Firoz ([www](https://www.pnnl.gov/people/jesun-firoz))
   - Lenny Guo ([www](https://www.pnnl.gov/people/luanzheng-guo))
-  - Zhen Peng ([www](https://johnpzh.github.io))
-  - Meng Tang (Illinois Institute of Technology) ([www](https://scholar.google.com/citations?user=KXC9NesAAAAJ&hl=en))
 
-  <!-- Hyungro Lee ([www](https://lee212.github.io/)) -->
-  
 
 **Contributors**:
   - Jesun Firoz ([www](https://www.pnnl.gov/people/jesun-firoz))
@@ -69,7 +63,7 @@ size, and data volume.
   - Meng Tang (Illinois Institute of Technology) ([www](https://scholar.google.com/citations?user=KXC9NesAAAAJ&hl=en))
   - Lenny Guo ([www](https://www.pnnl.gov/people/luanzheng-guo))
   - Nathan R. Tallent ([www](https://nathantallent.github.io))
-  - Hyungro Lee ([www](https://lee212.github.io/))
+
 
 References
 -----------------------------------------------------------------------------

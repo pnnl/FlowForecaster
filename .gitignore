@@ -14,3 +14,13 @@ __pycache__/
 # IDE
 .idea/
 .vscode/
+# Not for a public repo.  This remote is public, so a stray `git add -A` here
+# would publish things that should not be published.  Listed explicitly rather
+# than by pattern so the reason survives.
+#
+# Unpublished manuscript.
+_FlowForecaster_*.pdf
+# Converted from measured data in PerfLab-EXaCT/ElasticFlow, which is private.
+wfinstances/1000genomes/elasticflow/
+# Working notes / session transcripts.
+Notes/

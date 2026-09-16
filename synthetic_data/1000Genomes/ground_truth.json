@@ -1,0 +1,253 @@
+{
+  "generator": "make_synthetic_instances.py",
+  "spec_name": "replicate",
+  "threads": 2,
+  "iterations": 3,
+  "base_individuals": 4,
+  "base_outputs": 2,
+  "jitter": 0.0,
+  "tolerance": 0.1,
+  "spec": {
+    "vcf->individuals": {
+      "v": 26214400,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "individuals->chunk": {
+      "v": 12582912,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "ann->sifting": {
+      "v": 8388608,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "sifting->sifted": {
+      "v": 2097152,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "chunk->merge": {
+      "v": 12582912,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "merge->archive": {
+      "v": 41943040,
+      "s": 4096,
+      "p_v_data": 0,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "archive->mutation": {
+      "v": 20971520,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "archive->frequency": {
+      "v": 20971520,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "sifted->mutation": {
+      "v": 2097152,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "sifted->frequency": {
+      "v": 2097152,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "mutation->out": {
+      "v": 3145728,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    },
+    "frequency->out": {
+      "v": 3145728,
+      "s": 4096,
+      "p_v_data": 1,
+      "p_s_data": 0,
+      "p_v_task": 0,
+      "p_s_task": 0
+    }
+  },
+  "series": {
+    "data": [
+      {
+        "file": "synth.1k_genome.iter-3.thrd-2.graphml",
+        "scale": 1.0,
+        "nodes": 136,
+        "edges": 186
+      },
+      {
+        "file": "synth.1k_genome.iter-3.thrd-2_data_scale_2.0.graphml",
+        "scale": 2.0,
+        "nodes": 136,
+        "edges": 186
+      },
+      {
+        "file": "synth.1k_genome.iter-3.thrd-2_data_scale_4.0.graphml",
+        "scale": 4.0,
+        "nodes": 136,
+        "edges": 186
+      },
+      {
+        "file": "synth.1k_genome.iter-3.thrd-2_data_scale_8.0.graphml",
+        "scale": 8.0,
+        "nodes": 136,
+        "edges": 186
+      }
+    ],
+    "task": [
+      {
+        "file": "synth.1k_genome.iter-3.thrd-2.graphml",
+        "scale": 1.0,
+        "nodes": 136,
+        "edges": 186
+      },
+      {
+        "file": "synth.1k_genome.iter-3.thrd-2_task_scale_2.0.graphml",
+        "scale": 2.0,
+        "nodes": 232,
+        "edges": 346
+      },
+      {
+        "file": "synth.1k_genome.iter-3.thrd-2_task_scale_4.0.graphml",
+        "scale": 4.0,
+        "nodes": 424,
+        "edges": 666
+      },
+      {
+        "file": "synth.1k_genome.iter-3.thrd-2_task_scale_8.0.graphml",
+        "scale": 8.0,
+        "nodes": 808,
+        "edges": 1306
+      }
+    ]
+  },
+  "expected_rules": {
+    "data": {
+      "ALL.chr1.250000.vcf -> individuals": [
+        1
+      ],
+      "individuals -> chr1n-.tar.gz": [
+        7
+      ],
+      "ALL.chr1.annotation.vcf -> sifting": [
+        7
+      ],
+      "sifting -> sifted.SIFT.chr1.txt": [
+        7
+      ],
+      "chr1n-.tar.gz -> individuals_merge": [
+        5
+      ],
+      "individuals_merge -> chr1n.tar.gz": [
+        4
+      ],
+      "chr1n.tar.gz -> mutation_overlap": [
+        1
+      ],
+      "chr1n.tar.gz -> frequency": [
+        1
+      ],
+      "sifted.SIFT.chr1.txt -> mutation_overlap": [
+        1
+      ],
+      "sifted.SIFT.chr1.txt -> frequency": [
+        1
+      ],
+      "mutation_overlap -> chr1-.txt.tar.gz": [
+        7
+      ],
+      "frequency -> chr1-.txt-freq.tar.gz": [
+        7
+      ]
+    },
+    "task": {
+      "ALL.chr1.250000.vcf -> individuals": [
+        4,
+        7
+      ],
+      "individuals -> chr1n-.tar.gz": [
+        4,
+        7
+      ],
+      "ALL.chr1.annotation.vcf -> sifting": [
+        4,
+        7
+      ],
+      "sifting -> sifted.SIFT.chr1.txt": [
+        4,
+        7
+      ],
+      "chr1n-.tar.gz -> individuals_merge": [
+        5,
+        4,
+        7
+      ],
+      "individuals_merge -> chr1n.tar.gz": [
+        4,
+        7
+      ],
+      "chr1n.tar.gz -> mutation_overlap": [
+        4,
+        7
+      ],
+      "chr1n.tar.gz -> frequency": [
+        4,
+        7
+      ],
+      "sifted.SIFT.chr1.txt -> mutation_overlap": [
+        4,
+        7
+      ],
+      "sifted.SIFT.chr1.txt -> frequency": [
+        4,
+        7
+      ],
+      "mutation_overlap -> chr1-.txt.tar.gz": [
+        4,
+        7
+      ],
+      "frequency -> chr1-.txt-freq.tar.gz": [
+        4,
+        7
+      ]
+    }
+  }
+}

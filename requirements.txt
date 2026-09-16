@@ -2,4 +2,3 @@ numpy
 networkx
 matplotlib
 pandas
-sortedcontainers

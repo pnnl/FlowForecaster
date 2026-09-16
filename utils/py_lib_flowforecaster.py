@@ -1,3 +1,4 @@
+import json
 import os
 from enum import Enum
 import networkx as nx
@@ -17,8 +18,25 @@ class EdgeAttrType:
     ACC_SIZE = "access_size"
     NUM_SRC = "num_sources"
     NUM_DST = "num_destinations"
+    # Number of accesses.  The paper (Sec. III-A) treats accesses and access
+    # size as the base metrics and volume as derived.  Traced instances record
+    # only volume and access size, so accesses is recovered as A = V / S.
+    ACCESSES = "accesses"
+    # Fan-in aggregate volume, Eq. 1: V_sigma(v) = sum of V(e) over e in E^-(v).
+    VOL_AGGREGATE = "volume_aggregate"
     # NUM_TASKS = "num_tasks"
     # NUM_FILES = "num_files"
+
+
+def utils_dir():
+    """
+    Absolute path of this directory.
+
+    Modules under src/ used to do `sys.path.append("../utils")`, which only
+    works when the interpreter's working directory happens to be src/.  They
+    now resolve the path from __file__ instead.
+    """
+    return os.path.dirname(os.path.abspath(__file__))
 
 
 # class VertexType(str, Enum):
@@ -98,3 +116,73 @@ def flatten_graph_for_graphml(G):
     for src, dst, attr in G.edges(data=True):
         for key, val in attr.items():
             attr[key] = f"{val}"
+
+def _jsonable(value):
+    """Coerce numpy scalars, tuples and sets into plain JSON-representable values."""
+    if isinstance(value, (list, tuple, set)):
+        return [_jsonable(v) for v in value]
+    if isinstance(value, dict):
+        return {str(k): _jsonable(v) for k, v in value.items()}
+    if value is None or isinstance(value, (bool, int, float, str)):
+        return value
+    if hasattr(value, "item"):  # numpy scalar
+        return value.item()
+    return str(value)
+
+
+def encode_graph_for_graphml(G):
+    """
+    Return a *copy* of G whose attribute values are all GraphML-safe strings.
+
+    Two differences from flatten_graph_for_graphml():
+
+    1. It does not mutate G.  The caller can keep using the live graph after
+       writing it, which is what the projection path needs -- flattening in
+       place turned every list attribute into a Python repr and silently broke
+       downstream `isinstance(x, list)` checks.
+    2. Structured values are JSON-encoded rather than f-string formatted, so
+       read_graphml_decoded() can recover them exactly.
+    """
+    H = G.copy()  # new attribute dicts, shared values -- safe to overwrite
+    for _, attr in H.nodes(data=True):
+        for key, val in list(attr.items()):
+            attr[key] = val if isinstance(val, str) else json.dumps(_jsonable(val))
+    for _, _, attr in H.edges(data=True):
+        for key, val in list(attr.items()):
+            attr[key] = val if isinstance(val, str) else json.dumps(_jsonable(val))
+    return H
+
+
+def write_graphml_encoded(G, path):
+    """
+    Write G to GraphML without disturbing the in-memory graph.
+
+    Creates the containing directory if it is missing.  Every caller writes its
+    output after the inference is finished, so a path whose directory does not
+    exist used to throw away the whole run's work at the last step.
+    """
+    parent = os.path.dirname(os.path.abspath(path))
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+    nx.write_graphml(encode_graph_for_graphml(G), path)
+
+
+def _decode_attr(text):
+    if not isinstance(text, str):
+        return text
+    try:
+        return json.loads(text)
+    except (ValueError, TypeError):
+        return text
+
+
+def read_graphml_decoded(path):
+    """Read a GraphML file written by write_graphml_encoded(), restoring structure."""
+    G = nx.read_graphml(path)
+    for _, attr in G.nodes(data=True):
+        for key, val in list(attr.items()):
+            attr[key] = _decode_attr(val)
+    for _, _, attr in G.edges(data=True):
+        for key, val in list(attr.items()):
+            attr[key] = _decode_attr(val)
+    return G

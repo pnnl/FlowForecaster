@@ -6,7 +6,7 @@ from collections import deque
 import numpy as np
 import networkx as nx
 
-sys.path.append("../utils")
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, "utils"))
 from py_lib_flowforecaster import EdgeType, VertexType
 from py_lib_flowforecaster import EdgeAttrType, VertexAttrType
 from py_lib_flowforecaster import show_dag
@@ -160,6 +160,28 @@ def traverse(G, root, is_visited: set):
     # end test
 
     return new_G
+
+
+
+def mean_predecessor_size(G, task):
+    """
+    Mean size of the files feeding `task`.
+
+    The fan-in branches used to pass G.predecessors(task) -- a generator of node
+    *names* -- straight to np.mean, which cannot average strings.  The sequential
+    branch alongside them reads np.float64(G.nodes[src]["size"]), which is what
+    was meant here too.  The bug was unreachable for the 1000 Genomes traces
+    because it sits behind `level == 1` and that workflow's first task level is
+    not a fan-in; any workflow that opens with a merge would have hit it.
+    """
+    sizes = []
+    for src in G.predecessors(task):
+        size = G.nodes[src].get(VertexAttrType.SIZE, G.nodes[src].get("size"))
+        try:
+            sizes.append(np.float64(size))
+        except (TypeError, ValueError):
+            continue
+    return np.mean(sizes) if sizes else np.float64(0.0)
 
 
 def divide_threads(filename: str):
@@ -408,7 +430,7 @@ def construct_compound_graph(G):
                                         vertex=file_name,
                                         attr={
                                             VertexAttrType.TYPE: VertexType.FILE,
-                                            VertexAttrType.SIZE: [[np.mean(G.predecessors(task))]]
+                                            VertexAttrType.SIZE: [[mean_predecessor_size(G, task)]]
                                         })
                     set_vertex_attr(G=compound_graph,
                                     vertex=task_prefix,
@@ -675,7 +697,7 @@ def fold_thread_first_iteration(compound_graph,
                         insert_vertex_attr(G=compound_graph,
                                            vertex=file_name,
                                            delta_attr={
-                                               VertexAttrType.SIZE: [np.mean(G.predecessors(task))]
+                                               VertexAttrType.SIZE: [mean_predecessor_size(G, task)]
                                            })
                 elif G.in_degree(task) == 1:
                     """
@@ -904,7 +926,7 @@ def fold_thread_all_iterations(workflow_thread_id: int,
                             G=compound_graph,
                             vertex=file_name,
                             delta_attr={
-                                VertexAttrType.SIZE: np.mean(origin_graph.predecessors(task))
+                                VertexAttrType.SIZE: mean_predecessor_size(origin_graph, task)
                             })
                 elif origin_graph.in_degree(task) == 1:
                     """

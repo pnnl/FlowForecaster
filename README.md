@@ -69,7 +69,7 @@ size, and data volume.
 
 ## References
 
-- **Overview**: Nathan R. Tallent, Meng Tang, Zhen Peng, Jesun Firoz, Luanzheng Guo, Anthony Kougkas, and Xian-He Sun. "DataFlowDrs: Automating Performance Optimization of Data Flow Within HPC Workflows." IEEE Transactions on Parallel and Distributed Systems, Vol. 37, pp. 2619-2636, December 2026. ([doi: 10.1109/TPDS.2026.3722592](https://doi.org/10.1109/TPDS.2026.3722592))
+- **Overview Citation**: Nathan R. Tallent, Meng Tang, Zhen Peng, Jesun Firoz, Luanzheng Guo, Anthony Kougkas, and Xian-He Sun. "DataFlowDrs: Automating Performance Optimization of Data Flow Within HPC Workflows." IEEE Transactions on Parallel and Distributed Systems, Vol. 37, pp. 2619-2636, December 2026. ([doi: 10.1109/TPDS.2026.3722592](https://doi.org/10.1109/TPDS.2026.3722592))
 
 - **Specific**: Hyungro Lee, Jesun Firoz, Nathan R. Tallent, Luanzheng Guo, and Mahantesh Halappanavar. "FlowForecaster: Automatically Inferring Detailed & Interpretable Workflow Scaling Models for Forecasts" Proc. of the 39th IEEE Intl. Parallel and Distributed Processing Symp., IPDPS '25, pp. 420-432, IEEE Computer Society, June 2025. ([doi: 10.1109/IPDPS64566.2025.00045](https://doi.org/10.1109/IPDPS64566.2025.00045))
 

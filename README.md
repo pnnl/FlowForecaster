@@ -2,8 +2,7 @@
 <!-- $Id: 4098d4ffce45696ec3497ad9e08e712906c9d8fe $ -->
 
 
-FlowForecaster
-=============================================================================
+# FlowForecaster
 
 **Home**:
   - [FlowForecaster](https://github.com/pnnl/FlowForecaster), part of [DataFlowDrs](https://github.com/pnnl/DataFlowDrs)
@@ -51,6 +50,7 @@ size, and data volume.
 
 
 ------------------------------------------------------------------------------
+
 ## Contacts
 
 **Contacts**: (_firstname_._lastname_@pnnl.gov)
@@ -67,11 +67,11 @@ size, and data volume.
   - Nathan R. Tallent ([www](https://nathantallent.github.io))
 
 
-References
------------------------------------------------------------------------------
+## References
+
 - **Overview**: Nathan R. Tallent, Meng Tang, Zhen Peng, Jesun Firoz, Luanzheng Guo, Anthony Kougkas, and Xian-He Sun. "DataFlowDrs: Automating Performance Optimization of Data Flow Within HPC Workflows." IEEE Transactions on Parallel and Distributed Systems, Vol. 37, pp. 2619-2636, December 2026. ([doi: 10.1109/TPDS.2026.3722592](https://doi.org/10.1109/TPDS.2026.3722592))
 
-* **Specific**: Hyungro Lee, Jesun Firoz, Nathan R. Tallent, Luanzheng Guo, and Mahantesh Halappanavar. "FlowForecaster: Automatically Inferring Detailed & Interpretable Workflow Scaling Models for Forecasts" Proc. of the 39th IEEE Intl. Parallel and Distributed Processing Symp., IPDPS '25, pp. 420-432, IEEE Computer Society, June 2025. ([doi: 10.1109/IPDPS64566.2025.00045](https://doi.org/10.1109/IPDPS64566.2025.00045))
+- **Specific**: Hyungro Lee, Jesun Firoz, Nathan R. Tallent, Luanzheng Guo, and Mahantesh Halappanavar. "FlowForecaster: Automatically Inferring Detailed & Interpretable Workflow Scaling Models for Forecasts" Proc. of the 39th IEEE Intl. Parallel and Distributed Processing Symp., IPDPS '25, pp. 420-432, IEEE Computer Society, June 2025. ([doi: 10.1109/IPDPS64566.2025.00045](https://doi.org/10.1109/IPDPS64566.2025.00045))
 
 - For all related references, see [DataFlowDrs](https://github.com/pnnl/DataFlowDrs)
 
@@ -81,8 +81,7 @@ References
 BSD 2-clause license: [README-License.txt](/README-License.txt)
 
 
-Acknowledgements
------------------------------------------------------------------------------
+## Acknowledgements
 
 This work was supported by the U.S. Department of Energy's Office of
 Advanced Scientific Computing Research:
